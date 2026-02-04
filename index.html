@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚠️ SYSTEM WARNING ⚠️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: #000;
+            color: #0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .initial-warning {
+            text-align: center;
+            border: 3px solid #ff0;
+            padding: 50px;
+            background: #1a1a1a;
+            box-shadow: 0 0 30px #ff0;
+            max-width: 600px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 30px #ff0; }
+            50% { box-shadow: 0 0 50px #ff0; }
+        }
+
+        .virus-container {
+            text-align: center;
+            border: 3px solid #f00;
+            padding: 40px;
+            background: #1a1a1a;
+            box-shadow: 0 0 50px #f00;
+            animation: shake 0.5s infinite;
+            max-width: 600px;
+            display: none;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(-2px, 2px) rotate(-1deg); }
+            50% { transform: translate(2px, -2px) rotate(1deg); }
+            75% { transform: translate(-2px, -2px) rotate(-1deg); }
+        }
+
+        .warning-icon {
+            font-size: 80px;
+            color: #ff0;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50%, 100% { opacity: 1; }
+            25%, 75% { opacity: 0.3; }
+        }
+
+        h1 {
+            color: #f00;
+            font-size: 32px;
+            margin: 20px 0;
+            text-shadow: 0 0 10px #f00;
+        }
+
+        .message {
+            font-size: 18px;
+            margin: 20px 0;
+            line-height: 1.6;
+        }
+
+        .glitch {
+            color: #0ff;
+            animation: glitch 0.3s infinite;
+        }
+
+        @keyframes glitch {
+            0% { text-shadow: 2px 0 #f0f, -2px 0 #0ff; }
+            50% { text-shadow: -2px 0 #f0f, 2px 0 #0ff; }
+            100% { text-shadow: 2px 0 #f0f, -2px 0 #0ff; }
+        }
+
+        .buttons {
+            margin-top: 30px;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        button {
+            padding: 15px 40px;
+            font-size: 18px;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            border: 2px solid;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+        }
+
+        .continue-btn {
+            background: #ff0;
+            color: #000;
+            border-color: #ff0;
+            font-size: 20px;
+            padding: 20px 50px;
+        }
+
+        .continue-btn:hover {
+            background: #cc0;
+            box-shadow: 0 0 20px #ff0;
+        }
+
+        .accept-btn {
+            background: #0f0;
+            color: #000;
+            border-color: #0f0;
+        }
+
+        .accept-btn:hover {
+            background: #0a0;
+            box-shadow: 0 0 20px #0f0;
+        }
+
+        .decline-btn {
+            background: #f00;
+            color: #fff;
+            border-color: #f00;
+            position: relative;
+        }
+
+        .decline-btn:hover {
+            background: #a00;
+        }
+        
+        .question-text {
+            color: #fff;
+            font-size: 28px;
+            margin: 30px 0;
+            font-family: 'Arial', sans-serif;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .valentine-reveal {
+            display: none;
+            text-align: center;
+            background: linear-gradient(135deg, #ff6b9d 0%, #c06c84 100%);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 50px rgba(255, 107, 157, 0.8);
+            animation: fadeIn 1s;
+            max-width: 700px;
+            width: 90%;
+            position: relative;
+            z-index: 1000;
+        }
+        
+        body.valentine-mode {
+            background: linear-gradient(135deg, #1a0510 0%, #2a0a1f 50%, #1a0510 100%);
+            overflow-y: auto;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.5); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .valentine-reveal h2 {
+            color: #fff;
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'Arial', sans-serif;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .heart {
+            font-size: 100px;
+            animation: heartbeat 1s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.05); }
+        }
+
+        .date-details {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+        }
+
+        .date-details h3 {
+            color: #c06c84;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        .detail-item {
+            font-size: 20px;
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .detail-item strong {
+            color: #ff6b9d;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+        
+        .valentine-reveal.show {
+            display: block !important;
+        }
+
+        .loading {
+            font-size: 24px;
+            color: #ff0;
+            margin-top: 20px;
+        }
+
+        .loading-bar {
+            width: 100%;
+            height: 30px;
+            background: #333;
+            border: 2px solid #0f0;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+
+        .loading-fill {
+            height: 100%;
+            background: #0f0;
+            width: 0%;
+            transition: width 0.1s linear;
+            box-shadow: 0 0 20px #0f0;
+        }
+    </style>
+</head>
+<body>
+    <audio id="bgMusic" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="initial-warning" id="initialWarning">
+        <div class="warning-icon">⚠️</div>
+        <h1 style="color: #ff0; text-shadow: 0 0 10px #ff0;">SECURITY ALERT</h1>
+        <div class="message">
+            <p style="color: #fff; font-size: 22px; margin-top: 20px;">
+                You have clicked on a suspicious file
+            </p>
+            <p style="color: #f00; margin-top: 15px; font-size: 18px;">
+                Opening file...
+            </p>
+        </div>
+    </div>
+
+    <div class="virus-container" id="virusScreen">
+        <div class="warning-icon">⚠️</div>
+        <h1>⚠️ CRITICAL SYSTEM ERROR ⚠️</h1>
+        <div class="message">
+            <p class="glitch">VIRUS DETECTED!</p>
+            <p style="color: #ff0; margin-top: 15px;">
+                Your system has been infected with<br>
+                <strong style="font-size: 24px;">LOVE VIRUS RUNNING</strong>
+            </p>
+            <p style="color: #f00; margin-top: 15px;">
+                This virus will make you smile uncontrollably!<br>
+                Side effects: Butterflies in stomach, random giggling
+            </p>
+            <div class="loading">
+                <p>Installing affection... <span id="loadingPercent">0</span>%</p>
+                <div class="loading-bar">
+                    <div class="loading-fill" id="loadingFill"></div>
+                </div>
+            </div>
+        </div>
+        <div class="buttons" id="buttons" style="display: none;">
+            <button class="accept-btn" id="acceptBtn">ACCEPT INFECTION</button>
+            <button class="decline-btn" id="declineBtn">REJECT (UNAVAILABLE)</button>
+        </div>
+    </div>
+
+    <div class="valentine-reveal hidden" id="valentineReveal">
+        <div class="heart">❤️</div>
+        <h2>Just Kidding! 😄</h2>
+        <h2>Will You Be My Valentine?</h2>
+        <div class="date-details">
+            <h3>📅 Date Details</h3>
+            <div class="detail-item">
+                <strong>When:</strong> Feb - 14, 2026
+            </div>
+            <div class="detail-item">
+                <strong>Where:</strong> @Anywhere
+            </div>
+            <div class="detail-item">
+                <strong>Who Pays:</strong> My Treat! 🍰
+            </div>
+            <div style="margin-top: 30px; font-size: 32px; color: #ff1744; font-weight: bold;">
+                I LOVE YOU SO MUCH!
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
