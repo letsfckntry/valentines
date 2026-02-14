@@ -30,7 +30,7 @@ function showVirusMessages() {
     
     virusScreen.innerHTML = `
         <div class="warning-icon">💕</div>
-        <h1>💖 Special Valentine's Alert 💖</h1>
+        <h2>💖 Special Valentine's Alert 💖</h2>
         <div class="message" id="messageContainer">
             <p class="glitch">Sending love your way... 💘</p>
         </div>
@@ -91,16 +91,18 @@ function makeNoButtonTeleport() {
         // Add teleport class
         noBtn.classList.add('teleport');
         
-        // Get button and container dimensions
-        const containerRect = container.getBoundingClientRect();
-        const btnRect = noBtn.getBoundingClientRect();
+        // Get button and container dimensions using offset dimensions
+        const containerWidth = container.offsetWidth;
+        const containerHeight = container.offsetHeight;
+        const btnWidth = noBtn.offsetWidth;
+        const btnHeight = noBtn.offsetHeight;
         
-        // Calculate random position
-        const maxX = containerRect.width - btnRect.width - 40;
-        const maxY = containerRect.height - btnRect.height - 40;
+        // Calculate random position within container bounds
+        const maxX = containerWidth - btnWidth - 40;
+        const maxY = containerHeight - btnHeight - 40;
         
-        const randomX = Math.max(20, Math.random() * maxX);
-        const randomY = Math.max(20, Math.random() * maxY);
+        const randomX = Math.max(20, Math.min(maxX, Math.random() * maxX));
+        const randomY = Math.max(20, Math.min(maxY, Math.random() * maxY));
         
         // Teleport to new position
         noBtn.style.left = randomX + 'px';
@@ -113,14 +115,18 @@ function makeNoButtonTeleport() {
         
         noBtn.classList.add('teleport');
         
-        const containerRect = container.getBoundingClientRect();
-        const btnRect = noBtn.getBoundingClientRect();
+        // Get button and container dimensions using offset dimensions
+        const containerWidth = container.offsetWidth;
+        const containerHeight = container.offsetHeight;
+        const btnWidth = noBtn.offsetWidth;
+        const btnHeight = noBtn.offsetHeight;
         
-        const maxX = containerRect.width - btnRect.width - 40;
-        const maxY = containerRect.height - btnRect.height - 40;
+        // Calculate random position within container bounds
+        const maxX = containerWidth - btnWidth - 40;
+        const maxY = containerHeight - btnHeight - 40;
         
-        const randomX = Math.max(20, Math.random() * maxX);
-        const randomY = Math.max(20, Math.random() * maxY);
+        const randomX = Math.max(20, Math.min(maxX, Math.random() * maxX));
+        const randomY = Math.max(20, Math.min(maxY, Math.random() * maxY));
         
         noBtn.style.left = randomX + 'px';
         noBtn.style.top = randomY + 'px';

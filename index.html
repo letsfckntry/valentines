@@ -80,12 +80,9 @@
             max-width: 600px;
             width: 90%;
             max-height: 90vh;
-            overflow-y: auto;
             display: none;
             border-radius: 25px;
             position: relative;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
         }
         
         .virus-container::-webkit-scrollbar {
@@ -144,8 +141,8 @@
         }
 
         h1 {
-            color: #ff1744;
-            font-size: 32px;
+            color: #ffffff;
+            font-size: 42px;
             margin: 20px 0;
             text-shadow: 2px 2px 4px rgba(255, 23, 68, 0.3);
             font-family: 'Dancing Script', cursive;
@@ -157,6 +154,21 @@
                 margin: 15px 0;
             }
         }
+        h2 {
+            color: #ff1744;
+            font-size: 42px;
+            margin: 20px 0;
+            text-shadow: 2px 2px 4px rgba(255, 23, 68, 0.3);
+            font-family: 'Dancing Script', cursive;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 22px;
+                margin: 15px 0;
+            }
+        }
+
 
         .message {
             font-size: 18px;
@@ -534,7 +546,7 @@
 
     <div class="virus-container" id="virusScreen">
         <div class="warning-icon">💕</div>
-        <h1>💖 Special Valentine's Alert 💖</h1>
+        <h2>💖 Special Valentine's Alert 💖</h2>
         <div class="message">
             <p class="glitch">LOVE DETECTED!</p>
             <p style="color: #ff1744; margin-top: 15px; font-weight: bold;">
@@ -562,7 +574,7 @@
         <div class="heart"></div>
         <h1>SHE SAID YES! 🎉</h1>
         <div class="date-details">
-            <div style="margin-top: 30px; font-size: 32px; color: #ff1744; font-weight: bold; font-family: 'Pacifico', cursive;">
+            <div style="margin-top: 30px; font-size: 16px; color: #ff1744; font-weight: normal; font-family: 'Pacifico', cursive;">
                <i>You've Made this the best Valentines Day ever, Charmaine!</i> 
             </div>
             <div style="margin-top: 20px; font-size: 40px;">
