@@ -6,18 +6,26 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-fullscreen">
     <meta name="mobile-web-app-capable" content="yes">
-    <title>⚠️ SYSTEM WARNING ⚠️</title>
+    <title>💕 Special Valentine's Message 💕</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&display=swap');
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE and Edge */
+        }
+        
+        *::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
         }
 
         body {
-            font-family: 'Courier New', monospace;
-            background: #000;
-            color: #0f0;
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #ff6b9d 0%, #ffc3d5 50%, #ff6b9d 100%);
+            color: #fff;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -34,13 +42,14 @@
 
         .initial-warning {
             text-align: center;
-            border: 3px solid #ff0;
+            border: 4px solid #ff1744;
             padding: 50px;
-            background: #1a1a1a;
-            box-shadow: 0 0 30px #ff0;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 0 40px rgba(255, 23, 68, 0.6), 0 10px 30px rgba(0, 0, 0, 0.2);
             max-width: 600px;
             width: 90%;
             animation: pulse 2s infinite;
+            border-radius: 25px;
         }
 
         @media (max-width: 768px) {
@@ -51,21 +60,35 @@
         }
 
         @keyframes pulse {
-            0%, 100% { box-shadow: 0 0 30px #ff0; }
-            50% { box-shadow: 0 0 50px #ff0; }
+            0%, 100% { 
+                box-shadow: 0 0 40px rgba(255, 23, 68, 0.6), 0 10px 30px rgba(0, 0, 0, 0.2);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 0 60px rgba(255, 23, 68, 0.9), 0 15px 40px rgba(0, 0, 0, 0.3);
+                transform: scale(1.02);
+            }
         }
 
         .virus-container {
             text-align: center;
-            border: 3px solid #f00;
+            border: 4px solid #ff1744;
             padding: 40px;
-            background: #1a1a1a;
-            box-shadow: 0 0 50px #f00;
-            animation: shake 0.5s infinite;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 0 50px rgba(255, 23, 68, 0.7), 0 15px 40px rgba(0, 0, 0, 0.3);
+            animation: gentleFloat 3s ease-in-out infinite;
             max-width: 600px;
             width: 90%;
             max-height: 90vh;
             overflow-y: auto;
+            display: none;
+            border-radius: 25px;
+            position: relative;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        
+        .virus-container::-webkit-scrollbar {
             display: none;
         }
 
@@ -76,17 +99,37 @@
             }
         }
 
-        @keyframes shake {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            25% { transform: translate(-2px, 2px) rotate(-1deg); }
-            50% { transform: translate(2px, -2px) rotate(1deg); }
-            75% { transform: translate(-2px, -2px) rotate(-1deg); }
+        @keyframes gentleFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .virus-container::before {
+            content: '💕';
+            position: absolute;
+            top: -30px;
+            left: -30px;
+            font-size: 60px;
+            animation: heartSpin 4s linear infinite;
+        }
+        
+        .virus-container::after {
+            content: '💕';
+            position: absolute;
+            bottom: -30px;
+            right: -30px;
+            font-size: 60px;
+            animation: heartSpin 4s linear infinite reverse;
+        }
+        
+        @keyframes heartSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         .warning-icon {
             font-size: 80px;
-            color: #ff0;
-            animation: blink 1s infinite;
+            animation: heartPulse 1.5s ease-in-out infinite;
         }
 
         @media (max-width: 768px) {
@@ -95,16 +138,17 @@
             }
         }
 
-        @keyframes blink {
-            0%, 50%, 100% { opacity: 1; }
-            25%, 75% { opacity: 0.3; }
+        @keyframes heartPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
         }
 
         h1 {
-            color: #f00;
+            color: #ff1744;
             font-size: 32px;
             margin: 20px 0;
-            text-shadow: 0 0 10px #f00;
+            text-shadow: 2px 2px 4px rgba(255, 23, 68, 0.3);
+            font-family: 'Dancing Script', cursive;
         }
 
         @media (max-width: 768px) {
@@ -118,6 +162,7 @@
             font-size: 18px;
             margin: 20px 0;
             line-height: 1.6;
+            color: #c2185b;
         }
 
         @media (max-width: 768px) {
@@ -128,14 +173,14 @@
         }
 
         .glitch {
-            color: #0ff;
-            animation: glitch 0.3s infinite;
+            color: #ff1744;
+            animation: sparkle 1s ease-in-out infinite;
+            font-weight: bold;
         }
 
-        @keyframes glitch {
-            0% { text-shadow: 2px 0 #f0f, -2px 0 #0ff; }
-            50% { text-shadow: -2px 0 #f0f, 2px 0 #0ff; }
-            100% { text-shadow: 2px 0 #f0f, -2px 0 #0ff; }
+        @keyframes sparkle {
+            0%, 100% { text-shadow: 0 0 10px #ff1744, 0 0 20px #ff6b9d; }
+            50% { text-shadow: 0 0 20px #ff1744, 0 0 30px #ff6b9d, 0 0 40px #ffc3d5; }
         }
 
         .buttons {
@@ -144,6 +189,9 @@
             gap: 20px;
             justify-content: center;
             flex-wrap: wrap;
+            position: relative;
+            min-height: 80px;
+            padding: 20px;
         }
 
         @media (max-width: 768px) {
@@ -156,12 +204,13 @@
         button {
             padding: 15px 40px;
             font-size: 18px;
-            font-family: 'Courier New', monospace;
+            font-family: 'Georgia', serif;
             font-weight: bold;
-            border: 2px solid;
+            border: 3px solid;
             cursor: pointer;
             transition: all 0.3s;
             text-transform: uppercase;
+            border-radius: 50px;
         }
 
         @media (max-width: 768px) {
@@ -172,9 +221,9 @@
         }
 
         .continue-btn {
-            background: #ff0;
-            color: #000;
-            border-color: #ff0;
+            background: #ff1744;
+            color: #fff;
+            border-color: #ff1744;
             font-size: 20px;
             padding: 20px 50px;
         }
@@ -187,38 +236,46 @@
         }
 
         .continue-btn:hover {
-            background: #cc0;
-            box-shadow: 0 0 20px #ff0;
+            background: #c2185b;
+            box-shadow: 0 0 20px #ff1744;
+            transform: scale(1.05);
         }
 
         .accept-btn {
-            background: #0f0;
-            color: #000;
-            border-color: #0f0;
-        }
-
-        .accept-btn:hover {
-            background: #0a0;
-            box-shadow: 0 0 20px #0f0;
-        }
-
-        .decline-btn {
-            background: #f00;
+            background: #ff1744;
             color: #fff;
-            border-color: #f00;
+            border-color: #ff1744;
             position: relative;
         }
 
+        .accept-btn:hover {
+            background: #c2185b;
+            box-shadow: 0 0 20px #ff1744;
+            transform: scale(1.1);
+        }
+
+        .decline-btn {
+            background: #fff;
+            color: #ff1744;
+            border-color: #ff1744;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .decline-btn.teleport {
+            position: absolute !important;
+        }
+
         .decline-btn:hover {
-            background: #a00;
+            background: #ffe0e8;
         }
         
         .question-text {
-            color: #fff;
+            color: #ff1744;
             font-size: 28px;
             margin: 30px 0;
-            font-family: 'Arial', sans-serif;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-family: 'Pacifico', cursive;
+            text-shadow: 2px 2px 4px rgba(255, 23, 68, 0.2);
         }
 
         @media (max-width: 768px) {
@@ -242,6 +299,12 @@
             overflow-y: auto;
             position: relative;
             z-index: 1000;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        
+        .valentine-reveal::-webkit-scrollbar {
+            display: none;
         }
 
         @media (max-width: 768px) {
@@ -252,9 +315,23 @@
         }
         
         body.valentine-mode {
-            background: linear-gradient(135deg, #1a0510 0%, #2a0a1f 50%, #1a0510 100%);
+            background: linear-gradient(135deg, #ff6b9d 0%, #c06c84 50%, #ff6b9d 100%);
             overflow: hidden;
             touch-action: none;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle, rgba(255, 255, 255, 0.3) 1px, transparent 1px),
+                radial-gradient(circle, rgba(255, 23, 68, 0.2) 1px, transparent 1px);
+            background-size: 50px 50px, 80px 80px;
+            background-position: 0 0, 40px 40px;
+            pointer-events: none;
+            opacity: 0.4;
         }
 
         @keyframes fadeIn {
@@ -355,8 +432,9 @@
 
         .loading {
             font-size: 24px;
-            color: #ff0;
+            color: #ff1744;
             margin-top: 20px;
+            font-weight: bold;
         }
 
         @media (max-width: 768px) {
@@ -369,10 +447,11 @@
         .loading-bar {
             width: 100%;
             height: 30px;
-            background: #333;
-            border: 2px solid #0f0;
+            background: #ffc3d5;
+            border: 3px solid #ff1744;
             margin-top: 20px;
             overflow: hidden;
+            border-radius: 15px;
         }
 
         @media (max-width: 768px) {
@@ -384,43 +463,87 @@
 
         .loading-fill {
             height: 100%;
-            background: #0f0;
+            background: linear-gradient(90deg, #ff1744, #ff6b9d, #ff1744);
             width: 0%;
             transition: width 0.1s linear;
-            box-shadow: 0 0 20px #0f0;
+            box-shadow: 0 0 20px rgba(255, 23, 68, 0.7);
+            border-radius: 15px;
+        }
+        
+        /* Floating hearts background */
+        .floating-hearts {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        
+        .heart-float {
+            position: absolute;
+            font-size: 30px;
+            opacity: 0.6;
+            animation: floatUp 8s linear infinite;
+        }
+        
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .initial-warning, .virus-container, .valentine-reveal {
+            position: relative;
+            z-index: 10;
         }
     </style>
 </head>
 <body>
+    <div class="floating-hearts" id="floatingHearts"></div>
+    
     <audio id="bgMusic" loop>
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        <source src="https://www.youtube.com/watch?v=5ZD9_spFojY&list=RD5ZD9_spFojY&start_radio=1" type="audio/mpeg">
     </audio>
 
     <div class="initial-warning" id="initialWarning">
-        <div class="warning-icon">⚠️</div>
-        <h1 style="color: #ff0; text-shadow: 0 0 10px #ff0;">SECURITY ALERT</h1>
+        <div class="warning-icon">💌</div>
+        <h1 style="color: #ff1744; text-shadow: 2px 2px 4px rgba(255, 23, 68, 0.3);">Special Delivery!</h1>
         <div class="message">
-            <p style="color: #fff; font-size: 22px; margin-top: 20px;">
-                You have clicked on a suspicious file
+            <p style="color: #c2185b; font-size: 22px; margin-top: 20px; font-family: 'Georgia', serif;">
+                💕 You have received a special Valentine's message 💕
             </p>
-            <p style="color: #f00; margin-top: 15px; font-size: 18px;">
-                Opening file...
+            <p style="color: #ff1744; margin-top: 15px; font-size: 18px; font-weight: bold;">
+                Opening with love... ❤️
             </p>
         </div>
     </div>
 
     <div class="virus-container" id="virusScreen">
-        <div class="warning-icon">⚠️</div>
-        <h1>⚠️ CRITICAL SYSTEM ERROR ⚠️</h1>
+        <div class="warning-icon">💕</div>
+        <h1>💖 Special Valentine's Alert 💖</h1>
         <div class="message">
-            <p class="glitch">VIRUS DETECTED!</p>
-            <p style="color: #ff0; margin-top: 15px;">
-                Your system has been infected with<br>
-                <strong style="font-size: 24px;">LOVE VIRUS RUNNING</strong>
+            <p class="glitch">LOVE DETECTED!</p>
+            <p style="color: #ff1744; margin-top: 15px; font-weight: bold;">
+                Your heart has been touched by<br>
+                <strong style="font-size: 24px; font-family: 'Pacifico', cursive;">💕 CUPID'S LOVE SPELL 💕</strong>
             </p>
-            <p style="color: #f00; margin-top: 15px;">
-                This virus will make you smile uncontrollably!<br>
-                Side effects: Butterflies in stomach, random giggling
+            <p style="color: #c2185b; margin-top: 15px;">
+                This spell will make you smile uncontrollably!<br>
+                Side effects: Butterflies in stomach, endless joy, warm fuzzy feelings ✨
             </p>
             <div class="loading">
                 <p>Installing affection... <span id="loadingPercent">0</span>%</p>
@@ -431,13 +554,13 @@
         </div>
         <div class="buttons" id="buttons" style="display: none;">
             <button class="accept-btn" id="acceptBtn">ACCEPT INFECTION</button>
-            <button class="decline-btn" id="declineBtn">REJECT (UNAVAILABLE)</button>
+            <button class="decline-btn" id="declineBtn">NO</button>
         </div>
     </div>
 
     <div class="valentine-reveal hidden" id="valentineReveal">
-        <div class="heart">❤️</div>
-        <h2>SHE SAID YES! 🎉</h2>
+        <div class="heart"></div>
+        <h1>SHE SAID YES! 🎉</h1>
         <div class="date-details">
             <div style="margin-top: 30px; font-size: 32px; color: #ff1744; font-weight: bold; font-family: 'Pacifico', cursive;">
                <i>You've Made this the best Valentines Day ever, Charmaine!</i> 

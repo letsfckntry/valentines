@@ -1,4 +1,4 @@
-// Fake Virus Valentine Prank
+// Sweet Valentine's Day Surprise
 const initialWarning = document.getElementById('initialWarning');
 const virusScreen = document.getElementById('virusScreen');
 const valentineReveal = document.getElementById('valentineReveal');
@@ -19,20 +19,20 @@ setTimeout(() => {
     playAlertSound();
 }, 2000);
 
-// Show multiple virus warning messages
+// Show multiple love messages
 function showVirusMessages() {
     const messages = [
-        'VIRUS DETECTED!',
-        'Your system has been infected with LOVE VIRUS',
-        'This virus will make you smile uncontrollably!',
-        'Side effects: Butterflies in stomach, random giggling'
+        'LOVE DETECTED!',
+        'Your heart has been touched by CUPID\'S LOVE SPELL',
+        'This spell will make you smile uncontrollably!',
+        'Side effects: Butterflies in stomach, endless joy, warm fuzzy feelings ✨'
     ];
     
     virusScreen.innerHTML = `
-        <div class="warning-icon">⚠️</div>
-        <h1>⚠️ CRITICAL SYSTEM ERROR ⚠️</h1>
+        <div class="warning-icon">💕</div>
+        <h1>💖 Special Valentine's Alert 💖</h1>
         <div class="message" id="messageContainer">
-            <p class="glitch">SCANNING SYSTEM...</p>
+            <p class="glitch">Sending love your way... 💘</p>
         </div>
     `;
     
@@ -42,12 +42,13 @@ function showVirusMessages() {
     const messageInterval = setInterval(() => {
         if (messageIndex < messages.length) {
             const p = document.createElement('p');
-            p.style.color = messageIndex === 0 ? '#0ff' : (messageIndex === 1 || messageIndex === 2 ? '#ff0' : '#f00');
+            p.style.color = messageIndex === 0 ? '#ff1744' : (messageIndex === 1 || messageIndex === 2 ? '#c2185b' : '#ff6b9d');
             p.style.marginTop = '15px';
             p.style.fontSize = messageIndex === 1 ? '20px' : '18px';
+            p.style.fontWeight = 'bold';
             if (messageIndex === 0) p.className = 'glitch';
             if (messageIndex === 1) {
-                p.innerHTML = messages[messageIndex] + '<br><strong style="font-size: 24px;">LOVE VIRUS RUNNING</strong>';
+                p.innerHTML = messages[messageIndex] + '<br><strong style="font-size: 24px; font-family: \'Pacifico\', cursive;">💕 CUPID\'S LOVE SPELL 💕</strong>';
             } else {
                 p.textContent = messages[messageIndex];
             }
@@ -62,7 +63,7 @@ function showVirusMessages() {
             const loadingDiv = document.createElement('div');
             loadingDiv.className = 'loading';
             loadingDiv.innerHTML = `
-                <p>Installing affection... <span id="loadingPercent">0</span>%</p>
+                <p>Spreading love... ❤️ <span id="loadingPercent">0</span>%</p>
                 <div class="loading-bar">
                     <div class="loading-fill" id="loadingFill"></div>
                 </div>
@@ -77,10 +78,62 @@ function showVirusMessages() {
     }, 800);
 }
 
+// Make NO button teleport when clicked
+function makeNoButtonTeleport() {
+    const noBtn = document.getElementById('noBtn');
+    if (!noBtn) return;
+    
+    const container = noBtn.closest('.virus-container');
+    
+    noBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        // Add teleport class
+        noBtn.classList.add('teleport');
+        
+        // Get button and container dimensions
+        const containerRect = container.getBoundingClientRect();
+        const btnRect = noBtn.getBoundingClientRect();
+        
+        // Calculate random position
+        const maxX = containerRect.width - btnRect.width - 40;
+        const maxY = containerRect.height - btnRect.height - 40;
+        
+        const randomX = Math.max(20, Math.random() * maxX);
+        const randomY = Math.max(20, Math.random() * maxY);
+        
+        // Teleport to new position
+        noBtn.style.left = randomX + 'px';
+        noBtn.style.top = randomY + 'px';
+    });
+    
+    // Also teleport on hover for extra challenge
+    noBtn.addEventListener('mouseenter', (e) => {
+        e.preventDefault();
+        
+        noBtn.classList.add('teleport');
+        
+        const containerRect = container.getBoundingClientRect();
+        const btnRect = noBtn.getBoundingClientRect();
+        
+        const maxX = containerRect.width - btnRect.width - 40;
+        const maxY = containerRect.height - btnRect.height - 40;
+        
+        const randomX = Math.max(20, Math.random() * maxX);
+        const randomY = Math.max(20, Math.random() * maxY);
+        
+        noBtn.style.left = randomX + 'px';
+        noBtn.style.top = randomY + 'px';
+    });
+}
+
 // Initialize button event listeners
 function initializeButtons() {
     const yesBtn = document.getElementById('yesBtn');
     const noBtn = document.getElementById('noBtn');
+    
+    // Make NO button teleport
+    makeNoButtonTeleport();
     
     // Yes button - show valentine reveal
     yesBtn.addEventListener('click', () => {
@@ -104,34 +157,6 @@ function initializeButtons() {
         setTimeout(() => {
             createConfetti();
         }, 200);
-    });
-    
-    // No button - show error
-    noBtn.addEventListener('click', () => {
-        noBtn.textContent = 'ERROR!';
-        noBtn.style.background = '#000';
-        noBtn.style.animation = 'shake 0.3s infinite';
-        
-        // Play error sound
-        playAlertSound();
-        
-        setTimeout(() => {
-            noBtn.textContent = 'BUTTON DISABLED';
-            noBtn.disabled = true;
-            noBtn.style.opacity = '0.5';
-            noBtn.style.cursor = 'not-allowed';
-        }, 500);
-        
-        // Show message
-        setTimeout(() => {
-            const errorMsg = document.createElement('p');
-            errorMsg.style.color = '#f00';
-            errorMsg.style.marginTop = '20px';
-            errorMsg.style.fontSize = '20px';
-            errorMsg.className = 'glitch';
-            errorMsg.textContent = '❌ ERROR: "NO" is not a valid option! ❌';
-            document.getElementById('messageContainer').appendChild(errorMsg);
-        }, 1000);
     });
 }
 
@@ -165,7 +190,7 @@ function showValentineQuestion() {
     // Add question
     const questionDiv = document.createElement('div');
     questionDiv.innerHTML = `
-        <p class="question-text">💕 Can you be my valentine date? 💕</p>
+        <p class="question-text">💕 Will you be my Valentine? 💕</p>
     `;
     messageContainer.appendChild(questionDiv);
     
@@ -174,8 +199,8 @@ function showValentineQuestion() {
     buttonsDiv.className = 'buttons';
     buttonsDiv.id = 'buttons';
     buttonsDiv.innerHTML = `
-        <button class="accept-btn" id="yesBtn">YES! 😊</button>
-        <button class="decline-btn" id="noBtn">NO</button>
+        <button class="accept-btn" id="yesBtn">YES! �</button>
+        <button class="decline-btn" id="noBtn">NO 😢</button>
     `;
     virusScreen.appendChild(buttonsDiv);
     
@@ -183,19 +208,18 @@ function showValentineQuestion() {
     initializeButtons();
 }
 
-// Create confetti effect
+// Create romantic confetti effect
 function createConfetti() {
-    const colors = ['#ff6b9d', '#c06c84', '#ff0', '#f00', '#fff', '#0ff'];
+    const symbols = ['❤️', '💕', '💖', '💗', '💘', '💙', '💚', '💜', '💝', '🌹', '🌷', '✨'];
     
     for (let i = 0; i < 100; i++) {
         setTimeout(() => {
             const confetti = document.createElement('div');
             confetti.style.position = 'fixed';
-            confetti.style.width = '10px';
-            confetti.style.height = '10px';
-            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            confetti.style.fontSize = '25px';
+            confetti.textContent = symbols[Math.floor(Math.random() * symbols.length)];
             confetti.style.left = Math.random() * window.innerWidth + 'px';
-            confetti.style.top = '-10px';
+            confetti.style.top = '-50px';
             confetti.style.opacity = '1';
             confetti.style.transform = 'rotate(' + Math.random() * 360 + 'deg)';
             confetti.style.transition = 'all 3s ease-in';
@@ -239,7 +263,7 @@ function addGlitchEffects() {
     }, 100);
 }
 
-// Play alert sounds (using Web Audio API)
+// Play sweet alert sounds (using Web Audio API)
 function playAlertSound() {
     const audioContext = new (window.AudioContext || window.webkitAudioContext)();
     const oscillator = audioContext.createOscillator();
@@ -248,7 +272,8 @@ function playAlertSound() {
     oscillator.connect(gainNode);
     gainNode.connect(audioContext.destination);
     
-    oscillator.frequency.value = 800;
+    // Sweet chime sound
+    oscillator.frequency.value = 523.25; // C5 note
     oscillator.type = 'sine';
     
     gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
@@ -328,16 +353,16 @@ window.addEventListener('load', () => {
 // Prevent right-click for added effect
 document.addEventListener('contextmenu', (e) => {
     e.preventDefault();
-    alert('⚠️ System function disabled by LOVE VIRUS! ❤️');
+    alert('💖 Right-click disabled by the power of love! ❤️');
 });
 
-// Add random "system" messages
+// Add sweet "system" messages
 const systemMessages = [
-    'Scanning heart... ❤️',
-    'Detecting cuteness levels... 📈',
-    'Installing romantic protocols... 💕',
-    'Bypassing resistance... 😏',
-    'Love infection at 100%... 💘'
+    'Checking heart compatibility... ❤️',
+    'Measuring cuteness levels... 📈',
+    'Loading romantic moments... 💕',
+    'Preparing butterflies... 🦋',
+    'Love spell at 100%... 💘'
 ];
 
 let messageIndex = 0;
@@ -347,3 +372,27 @@ setInterval(() => {
         messageIndex++;
     }
 }, 2000);
+
+// Create floating hearts background
+function createFloatingHearts() {
+    const floatingHeartsContainer = document.getElementById('floatingHearts');
+    const hearts = ['❤️', '💕', '💖', '💗', '💓', '💝', '🌹'];
+    
+    setInterval(() => {
+        const heart = document.createElement('div');
+        heart.className = 'heart-float';
+        heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+        heart.style.left = Math.random() * 100 + '%';
+        heart.style.animationDuration = (Math.random() * 5 + 6) + 's';
+        heart.style.fontSize = (Math.random() * 20 + 20) + 'px';
+        
+        floatingHeartsContainer.appendChild(heart);
+        
+        setTimeout(() => {
+            heart.remove();
+        }, 10000);
+    }, 300);
+}
+
+// Start floating hearts when page loads
+createFloatingHearts();
